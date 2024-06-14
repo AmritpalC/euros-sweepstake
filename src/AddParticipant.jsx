@@ -13,7 +13,7 @@ export default function AddParticipant({addParticipant}) {
   }
 
   return (
-    <div>
+    <div className="add-participant-comp">
       <h2>Add Participant</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -22,7 +22,7 @@ export default function AddParticipant({addParticipant}) {
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter name"
         />
-        <button type="submit">Add</button>
+        <button type="submit" className="add-btn">Add</button>
       </form>
     </div>
   );

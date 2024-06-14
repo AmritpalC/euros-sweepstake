@@ -1,7 +1,10 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+
+import NavBar from './NavBar';
 import TeamList from './TeamList';
 import AddParticipant from './AddParticipant';
+import Footer from './Footer'
 
 export default function App() {
   
@@ -40,21 +43,24 @@ export default function App() {
 
   return (
     <main className="App">
-      <h1>Euro 2024 Sweepstake</h1>
-      <div className='add-ppl'>
-        <AddParticipant addParticipant={addParticipant} />
+      <NavBar />
+      <div className='app-content'>
+        <div className='add-ppl'>
+          <AddParticipant addParticipant={addParticipant} />
+        </div>
+        <div className='ppl'>
+          <ul>
+            {participants.map((participant, index) => (
+                      <li key={index}>
+                        {participant.name} 
+                      </li>
+                    ))}          
+          </ul>
+        </div>
+        <button onClick={assignTeams} className='assign-btn'>Assign Teams</button>
+        <TeamList assignedTeams={assignedTeams} />
       </div>
-      <div className='ppl'>
-        <ul>
-          {participants.map((participant, index) => (
-                    <li key={index}>
-                      {participant.name} 
-                    </li>
-                  ))}          
-        </ul>
-      </div>
-      <button onClick={assignTeams}>Assign Teams</button>
-      <TeamList assignedTeams={assignedTeams} />
+      <Footer />
     </main>
   );
 }

@@ -2,7 +2,7 @@
 
 export default function TeamList({assignedTeams}) {
   return (
-    <div>
+    <div className="teams-comp">
       <h2>Assigned Teams</h2>
       <ul>
         {assignedTeams.map((participant, index) => (

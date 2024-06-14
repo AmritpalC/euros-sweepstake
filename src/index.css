@@ -23,17 +23,128 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: repeating-linear-gradient(
-    45deg,
-    var(--off-dark),
-    var(--orange) 0.1vmin,
-    #242424 0.1vmin,    
-    #1c1c1c 40vmin
-  );
   color: var(--white);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1vmin;
+}
+
+/* NavBar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  padding: 2vmin 4vmin;
+  background-color: var(--dark);
+}
+
+.logo-and-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 10vmin;
+}
+.nav-name {
+  display: none;
+  font-size: 3vmin;
+}
+
+.title {
+  font-size: 4.5vmin;
+}
+
+/* App content - Teams and assignment */
+
+.orange {
+  color: var(--orange);
+}
+
+.app-content {
+  min-height: 100vh;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--off-dark),
+    var(--orange) 0.1vmin,
+    #242424 0.1vmin,    
+    #1c1c1c 40vmin
+  );
+}
+
+.add-participant-comp {
+  padding-top: 2vmin;
+}
+
+.teams-comp {
+  padding-bottom: 2vmin;
+}
+
+.assign-btn {
+  background-color: var(--orange);
+  color: var(--dark);
+  font-size: 3.4vmin;
+  font-weight: bold;
+  border: var(--dark) 1px solid;
+  padding: 1vmin 2vmin;
+  margin: 2vmin 0;
+}
+
+.assign-btn:hover{
+  background-color: var(--dark);
+  color: var(--orange);
+  cursor: pointer;
+  border-color: var(--orange);
+}
+
+/* Footer */
+
+footer {
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 3vmin;
+  font-size: 2.5vmin;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Media Queries */
+
+@media (min-width: 500px) {
+  /* NavBar */
+  .nav-logo {
+    width: 7vmin;
+  }
+  .nav-name {
+    display: block;
+    font-size: 2.5vmin;
+  }
+  .title {
+    font-size: 4vmin;
+  }
+
+  /* Teams and assignment */
+  .assign-btn {
+    font-size: 2vmin;
+    /* margin: 0 6vmin 0 0; */
+    padding: 1vmin;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 2vmin;
+  }
 }
