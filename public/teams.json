@@ -1,0 +1,100 @@
+{
+  "teams": [
+    {
+      "name": "Albania",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_al-flag.gif"
+    },
+    {
+      "name": "Austria",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_au-flag.gif"
+    },
+    {
+      "name": "Belgium",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_be-flag.gif"
+    },
+    {
+      "name": "Croatia",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_hr-flag.gif"
+    },
+    {
+      "name": "Czechia",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_ez-flag.gif"
+    },
+    {
+      "name": "Denmark",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_da-flag.gif"
+    },
+    {
+      "name": "England",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_England.svg"
+    },
+    {
+      "name": "France",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_fr-flag.gif"
+    },
+    {
+      "name": "Georgia",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_gg-flag.gif"
+    },
+    {
+      "name": "Germany",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_gm-flag.gif"
+    },
+    {
+      "name": "Hungary",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_hu-flag.gif"
+    },
+    {
+      "name": "Italy",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_it-flag.gif"
+    },
+    {
+      "name": "Netherlands",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_nl-flag.gif"
+    },
+    {
+      "name": "Poland",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_pl-flag.gif"
+    },
+    {
+      "name": "Portugal",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_po-flag.gif"
+    },
+    {
+      "name": "Romania",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_ro-flag.gif"
+    },
+    {
+      "name": "Scotland",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Scotland.svg"
+    },
+    {
+      "name": "Serbia",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_ri-flag.gif"
+    },
+    {
+      "name": "Slovakia",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_lo-flag.gif"
+    },
+    {
+      "name": "Slovenia",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_si-flag.gif"
+    },
+    {
+      "name": "Spain",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_sp-flag.gif"
+    },
+    {
+      "name": "Switzerland",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_sz-flag.gif"
+    },
+    {
+      "name": "Turkiye",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_tu-flag.gif"
+    },
+    {
+      "name": "Ukraine",
+      "flag": "https://www.worldometers.info//img/flags/small/tn_up-flag.gif"
+    }
+  ]
+}
