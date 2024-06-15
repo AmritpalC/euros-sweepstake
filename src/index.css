@@ -8,6 +8,7 @@
   --off-dark: rgb(28, 28, 28);
   --off-white: rgb(241, 241, 241);
   --orange: rgb(255, 159, 10);
+  --red: rgb(255, 69, 58);
 }
 
 html {
@@ -37,10 +38,10 @@ ul {
 }
 
 li {
-  margin-bottom: 1vmin;
+  margin-bottom: 0.5vmin;
 }
 
-/* NavBar */
+/* ! NavBar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -56,19 +57,19 @@ li {
   align-items: center;
 }
 
+.home-link {
+  text-decoration: none;
+}
+
 .nav-logo {
   width: 10vmin;
-}
-.nav-name {
-  display: none;
-  font-size: 3vmin;
 }
 
 .title {
   font-size: 4.5vmin;
 }
 
-/* App content - Teams and assignment */
+/* ! App content - Teams and assignment */
 
 .orange {
   color: var(--orange);
@@ -83,18 +84,44 @@ li {
     #242424 0.1vmin,    
     #1c1c1c 40vmin
   );
+  /* background-size: 200% 200%;
+  animation: pulse 120s linear infinite; */
 }
 
-.add-participant-comp {
+.add-participant-comp, .intro {
   padding-top: 2vmin;
+}
+
+.intro {
+  font-weight: bold;
+  margin: 0 3vmin;
+  font-size: 3.5vmin;
 }
 
 .teams-comp {
   padding-bottom: 2vmin;
 }
 
-.assign-btn {
-  background-color: var(--orange);
+.participants-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enter-name {
+  margin-right: 5vmin;
+  padding: 1vmin 2vmin;
+  background-color: var(--dark);
+  color: var(--white);
+  border: 1px solid var(--orange);
+  font-size: 4vmin;
+}
+
+.ppl {
+  font-size: 4vmin;
+}
+
+.assign-btn, .add-btn, .reset-btn {
   color: var(--dark);
   font-size: 3.4vmin;
   font-weight: bold;
@@ -103,14 +130,53 @@ li {
   margin: 2vmin 0;
 }
 
-.assign-btn:hover{
+.assign-btn, .add-btn {
+  background-color: var(--orange);
+}
+
+.reset-btn {
+  background-color: var(--red);
+  margin-left: 5vmin;
+}
+
+.assign-btn:hover, .add-btn:hover {
   background-color: var(--dark);
   color: var(--orange);
   cursor: pointer;
   border-color: var(--orange);
 }
 
-/* Footer */
+.reset-btn:hover {
+  background-color: var(--dark);
+  color: var(--red);
+  cursor: pointer;
+  border-color: var(--red);
+}
+
+.error-msg {
+  font-weight: bold;
+  font-size: 3.5vmin;
+  color: var(--red);
+}
+
+.current-participant {
+  /* background-color: var(--orange); */
+  color: var(--orange);
+  box-shadow: 0 0 4px var(--orange), 0 0 8px var(--orange), 0 0 12px var(--orange);
+  padding: 1vmin;
+  border-radius: 5px;
+  display: inline-block;
+  /* padding: 0.5vmin; */
+  /* border-radius: 5px; */
+}
+/* .current-participant {
+  background-color: var(--orange);
+  color: var(--dark);
+  padding: 0.5vmin;
+  border-radius: 5px;
+} */
+
+/* ! Footer */
 
 footer {
   background-color: var(--dark);
@@ -121,26 +187,45 @@ footer {
   justify-content: space-between;
 }
 
-/* Media Queries */
+.portfolio {
+  text-decoration: none;
+  color: var(--red);
+}
+
+.portfolio:hover {
+  color: var(--orange);
+}
+
+/* ! Media Queries */
 
 @media (min-width: 500px) {
   /* NavBar */
   .nav-logo {
     width: 7vmin;
   }
-  .nav-name {
-    display: block;
-    font-size: 2.5vmin;
-  }
   .title {
     font-size: 4vmin;
   }
+  .intro {
+    font-size: 2.5vmin;
+  }
 
   /* Teams and assignment */
-  .assign-btn {
+  .assign-btn, .add-btn, .reset-btn {
     font-size: 2vmin;
-    /* margin: 0 6vmin 0 0; */
     padding: 1vmin;
+  }
+  .enter-name {
+    font-size: 2vmin;
+  }
+  .ppl {
+    font-size: 2.5vmin;
+  }
+  .current-participant {
+    padding: 0.5vmin;
+  }
+  .error-msg {
+    font-size: 2.5vmin;
   }
 
   /* Footer */
@@ -148,3 +233,17 @@ footer {
     font-size: 2vmin;
   }
 }
+
+/* ! Keyframes */
+
+/* @keyframes pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+} */

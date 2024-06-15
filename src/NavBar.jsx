@@ -1,16 +1,16 @@
-import football from "./football-icon.png"
+import { Link } from "react-router-dom";
+import football from "./football-icon.png";
 
 export default function NavBar() {
 
   return (
     <div>
       <div className="navbar">
-        <div className="logo-and-name">
-          <img src={football} alt="Football" className="nav-logo"></img>
-          <span className="nav-name orange">
-            WWW
-          </span>
-        </div>
+        <Link to="/" className="home-link">
+          <div className="logo-and-name">
+            <img src={football} alt="Football" className="nav-logo"></img>
+          </div>
+        </Link>
         <div className="title">Euro 2024 Sweepstake</div>
       </div>
     </div>
