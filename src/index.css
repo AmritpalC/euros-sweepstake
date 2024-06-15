@@ -7,8 +7,8 @@
   --dark: rgb(0, 0, 0);
   --off-dark: rgb(28, 28, 28);
   --off-white: rgb(241, 241, 241);
-  --orange: rgb(255, 159, 10);
   --red: rgb(255, 69, 58);
+  --green: rgb(48, 209, 88);
 }
 
 html {
@@ -57,6 +57,13 @@ li {
   align-items: center;
 }
 
+.nav-logo:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px var(--green), 0 0 8px var(--green), 0 0 12px var(--green);
+  border-radius: 50%;
+  background-color: var(--green);
+}
+
 .home-link {
   text-decoration: none;
 }
@@ -70,22 +77,27 @@ li {
 }
 
 /* ! App content - Teams and assignment */
-
-.orange {
-  color: var(--orange);
+.green {
+  color: var(--green);
 }
 
-.app-content {
+.gen-page, .home-page {
   min-height: 100vh;
   background: repeating-linear-gradient(
-    -45deg,
+    45deg,
     var(--off-dark),
-    var(--orange) 0.1vmin,
+    var(--green) 0.1vmin,
     #242424 0.1vmin,    
     #1c1c1c 40vmin
   );
-  /* background-size: 200% 200%;
-  animation: pulse 120s linear infinite; */
+}
+
+.home-page {
+  padding-top: 50vmin;
+}
+
+.gen-page {
+  padding-top: 5vmin;
 }
 
 .add-participant-comp, .intro {
@@ -95,7 +107,7 @@ li {
 .intro {
   font-weight: bold;
   margin: 0 3vmin;
-  font-size: 3.5vmin;
+  font-size: 4vmin;
 }
 
 .teams-comp {
@@ -113,7 +125,7 @@ li {
   padding: 1vmin 2vmin;
   background-color: var(--dark);
   color: var(--white);
-  border: 1px solid var(--orange);
+  border: 1px solid var(--green);
   font-size: 4vmin;
 }
 
@@ -121,17 +133,33 @@ li {
   font-size: 4vmin;
 }
 
-.assign-btn, .add-btn, .reset-btn {
+.team-limit-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-limit {
+  font-size: 3vmin;
+  border: 1px solid var(--green);
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 1vmin 2vmin;
+  margin-left: 2vmin;
+  width: auto;
+}
+
+.assign-btn, .add-btn, .reset-btn, .go-to-gen-btn {
   color: var(--dark);
-  font-size: 3.4vmin;
+  font-size: 4vmin;
   font-weight: bold;
   border: var(--dark) 1px solid;
   padding: 1vmin 2vmin;
   margin: 2vmin 0;
 }
 
-.assign-btn, .add-btn {
-  background-color: var(--orange);
+.assign-btn, .add-btn, .go-to-gen-btn {
+  background-color: var(--green);
 }
 
 .reset-btn {
@@ -139,11 +167,11 @@ li {
   margin-left: 5vmin;
 }
 
-.assign-btn:hover, .add-btn:hover {
+.assign-btn:hover, .add-btn:hover, .go-to-gen-btn:hover {
   background-color: var(--dark);
-  color: var(--orange);
+  color: var(--green);
   cursor: pointer;
-  border-color: var(--orange);
+  border-color: var(--green);
 }
 
 .reset-btn:hover {
@@ -160,24 +188,55 @@ li {
 }
 
 .current-participant {
-  /* background-color: var(--orange); */
-  color: var(--orange);
-  box-shadow: 0 0 4px var(--orange), 0 0 8px var(--orange), 0 0 12px var(--orange);
+  box-shadow: 0 0 4px var(--green), 0 0 8px var(--green), 0 0 12px var(--green);
   padding: 1vmin;
   border-radius: 5px;
   display: inline-block;
-  /* padding: 0.5vmin; */
-  /* border-radius: 5px; */
 }
-/* .current-participant {
-  background-color: var(--orange);
-  color: var(--dark);
-  padding: 0.5vmin;
-  border-radius: 5px;
-} */
+
+/* ? TeamList */
+.participants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40vmin, 1fr));
+  gap: 2vmin;
+  margin: 5vmin;
+}
+
+.participant-card {
+  background-color: var(--dark);
+  border: 1px solid var(--green);
+  padding: 2vmin;
+  border-radius: 2vmin;
+  color: var(--white);
+  box-shadow: 0 0 4px rgba(48, 209, 88, 0.6);
+}
+
+.card-name {
+  text-decoration: underline;
+  text-decoration-color: var(--green);
+}
+
+.teams-list {
+  display: flex;
+  justify-content: center;
+}
+
+.participant-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.participant-card li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vmin;
+}
+
+.participant-card img {
+  margin-left: 0.5vmin;
+}
 
 /* ! Footer */
-
 footer {
   background-color: var(--dark);
   color: var(--white);
@@ -193,11 +252,10 @@ footer {
 }
 
 .portfolio:hover {
-  color: var(--orange);
+  color: var(--green);
 }
 
 /* ! Media Queries */
-
 @media (min-width: 500px) {
   /* NavBar */
   .nav-logo {
@@ -206,16 +264,19 @@ footer {
   .title {
     font-size: 4vmin;
   }
+  .gen-page, .home-page {
+    padding-top: 4vmin;
+  }
   .intro {
     font-size: 2.5vmin;
   }
 
   /* Teams and assignment */
-  .assign-btn, .add-btn, .reset-btn {
+  .assign-btn, .add-btn, .reset-btn, .go-to-gen-btn {
     font-size: 2vmin;
     padding: 1vmin;
   }
-  .enter-name {
+  .enter-name, .team-limit {
     font-size: 2vmin;
   }
   .ppl {
@@ -227,23 +288,12 @@ footer {
   .error-msg {
     font-size: 2.5vmin;
   }
+  .participants-grid {
+    grid-template-columns: repeat(auto-fit, minmax(20vmin, 1fr));
+  }
 
   /* Footer */
   footer {
     font-size: 2vmin;
   }
 }
-
-/* ! Keyframes */
-
-/* @keyframes pulse {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-} */
