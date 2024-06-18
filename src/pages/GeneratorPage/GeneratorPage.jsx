@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import TeamList from './TeamList';
-import AddParticipant from './AddParticipant';
+import TeamList from '../../components/TeamList/TeamList';
+import AddParticipant from '../../components/AddParticipant/AddParticipant';
 
 export default function GeneratorPage() {
 
@@ -87,10 +87,40 @@ export default function GeneratorPage() {
     fetchTeams();
   }
 
+  function generateCSV() {
+    const csvRows = [
+      ['Participant', 'Teams']
+    ];
+
+    participants.forEach(participant => {
+      const teamNames = participant.teams.map(team => team.name).join(', ')
+      csvRows.push([participant.name, teamNames]);
+    });
+
+    const csvContent = csvRows.map(e => e.join(",")).join("\n");
+    return csvContent
+  }
+
+  function downloadCSV() {
+    try {
+      const csvContent = generateCSV()
+      const blob = new Blob([csvContent], { type: 'text/csv' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      document.body.appendChild(link);
+      link.download = 'sweepstake_results.csv'
+      document.body.removeChild(link);
+      link.click()
+    } catch (error) {
+      console.error("Error downloading CSV:", error)
+      setError("Failed to download CSV file. Please try again later");
+    }
+  }
+
   return (
     <div className='gen-page'>
       <div className='intro green'>
-        Add everyone's name and set a team limit for each person. Once you are ready, hit assign team to start! 
+        Add everyone's name and set the max number of teams each person can have. Once you are ready, hit "assign team" to start! 
       </div>
       <div className='add-ppl'>
         <AddParticipant addParticipant={addParticipant} />
@@ -121,6 +151,7 @@ export default function GeneratorPage() {
       <div className='buttons'>
         <button onClick={assignNextTeam} className='assign-btn'>Assign Team</button>
         <button onClick={reset} className='reset-btn'>Reset</button>
+        <button onClick={downloadCSV} className='assign-btn'>Download CSV</button>
       </div>
       {error && <p className="error-msg">{error}</p>}
       <TeamList assignedTeams={assignedTeams} />

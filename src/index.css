@@ -9,6 +9,8 @@
   --off-white: rgb(241, 241, 241);
   --red: rgb(255, 69, 58);
   --green: rgb(48, 209, 88);
+  --red-light: rgb(215, 0, 21);
+  --green-light: rgb(36, 128, 61);
 }
 
 html {
@@ -25,6 +27,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--white);
+}
+
+body.light {
+  color: var(--dark);
 }
 
 code {
@@ -51,6 +57,10 @@ li {
   background-color: var(--dark);
 }
 
+body.light .navbar {
+  background-color: var(--white);
+}
+
 .logo-and-name {
   display: flex;
   justify-content: center;
@@ -62,6 +72,11 @@ li {
   box-shadow: 0 0 4px var(--green), 0 0 8px var(--green), 0 0 12px var(--green);
   border-radius: 50%;
   background-color: var(--green);
+}
+
+body.light .nav-logo:hover {
+  box-shadow: 0 0 4px var(--green-light), 0 0 8px var(--green-light), 0 0 12px var(--green-light);
+  background-color: var(--green-light);
 }
 
 .home-link {
@@ -76,11 +91,23 @@ li {
   font-size: 4.5vmin;
 }
 
-/* ! App content - Teams and assignment */
-.green {
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  font-size: 6vmin;
+  cursor: pointer;
+  padding: 2vmin 2vmin;
+}
+
+.theme-toggle:hover, .green {
   color: var(--green);
 }
 
+body.light .theme-toggle:hover, body.light .green {
+  color: var(--green-light)
+}
+
+/* ! App content - Teams and assignment */
 .gen-page, .home-page {
   min-height: 100vh;
   background: repeating-linear-gradient(
@@ -89,6 +116,16 @@ li {
     var(--green) 0.1vmin,
     #242424 0.1vmin,    
     #1c1c1c 40vmin
+  );
+}
+
+body.light .gen-page, body.light .home-page {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--off-white),
+    var(--green-light) 0.1vmin,
+    #F1F1F1 0.1vmin,    
+    #FFFFFF 40vmin
   );
 }
 
@@ -106,8 +143,25 @@ li {
 
 .intro {
   font-weight: bold;
-  margin: 0 3vmin;
+  margin: 0 4vmin;
   font-size: 4vmin;
+}
+
+.euro-2024 {
+  position: relative;
+  cursor: pointer;
+}
+
+.euro-2024:hover {
+  animation: colour-change 4s infinite, glow 2s infinite;
+}
+
+body.light .euro-2024:hover {
+  animation: light-colour-change 4s infinite, light-glow 2s infinite;
+}
+
+.home-desc {
+  margin: 2vmin 0;
 }
 
 .teams-comp {
@@ -127,6 +181,12 @@ li {
   color: var(--white);
   border: 1px solid var(--green);
   font-size: 4vmin;
+}
+
+body.light .enter-name, body.light .team-limit {
+  background-color: var(--white);
+  color: var(--dark);
+  border-color: var(--green-light);
 }
 
 .ppl {
@@ -158,13 +218,26 @@ li {
   margin: 2vmin 0;
 }
 
+body.light .assign-btn, body.light .add-btn, body.light .reset-btn, body.light .go-to-gen-btn {
+  color: var(--white);
+  border-color: var(--white);
+}
+
 .assign-btn, .add-btn, .go-to-gen-btn {
   background-color: var(--green);
 }
 
+body.light .assign-btn, body.light .add-btn, body.light .go-to-gen-btn {
+  background-color: var(--green-light);
+}
+
 .reset-btn {
   background-color: var(--red);
-  margin-left: 5vmin;
+  margin: 0 4vmin;
+}
+
+body.light .reset-btn {
+  background-color: var(--red-light);
 }
 
 .assign-btn:hover, .add-btn:hover, .go-to-gen-btn:hover {
@@ -174,11 +247,23 @@ li {
   border-color: var(--green);
 }
 
+body.light .assign-btn:hover, body.light .add-btn:hover, body.light .go-to-gen-btn:hover {
+  background-color: var(--white);
+  color: var(--green-light);
+  border-color: var(--green-light);
+}
+
 .reset-btn:hover {
   background-color: var(--dark);
   color: var(--red);
   cursor: pointer;
   border-color: var(--red);
+}
+
+body.light .reset-btn:hover {
+  background-color: var(--white);
+  color: var(--red-light);
+  border-color: var(--red-light);
 }
 
 .error-msg {
@@ -187,11 +272,19 @@ li {
   color: var(--red);
 }
 
+body.light .error-msg, body.light .portfolio {
+  color: var(--red-light);
+}
+
 .current-participant {
   box-shadow: 0 0 4px var(--green), 0 0 8px var(--green), 0 0 12px var(--green);
   padding: 1vmin;
   border-radius: 5px;
   display: inline-block;
+}
+
+body.light .current-participant {
+  box-shadow: 0 0 4px var(--green-light), 0 0 8px var(--green-light), 0 0 12px var(--green-light);
 }
 
 /* ? TeamList */
@@ -211,9 +304,19 @@ li {
   box-shadow: 0 0 4px rgba(48, 209, 88, 0.6);
 }
 
+body.light .participant-card {
+  background-color: var(--white);
+  border-color: var(--green-light);
+  color: var(--dark);
+}
+
 .card-name {
   text-decoration: underline;
   text-decoration-color: var(--green);
+}
+
+body.light .card-name {
+  text-decoration-color: var(--green-light);
 }
 
 .teams-list {
@@ -246,6 +349,11 @@ footer {
   justify-content: space-between;
 }
 
+body.light footer {
+  background-color: var(--white);
+  color: var(--dark);
+}
+
 .portfolio {
   text-decoration: none;
   color: var(--red);
@@ -253,6 +361,10 @@ footer {
 
 .portfolio:hover {
   color: var(--green);
+}
+
+body.light .portfolio:hover {
+  color: var(--green-light);
 }
 
 /* ! Media Queries */
@@ -269,6 +381,9 @@ footer {
   }
   .intro {
     font-size: 2.5vmin;
+  }
+  .theme-toggle {
+    font-size: 4vmin;
   }
 
   /* Teams and assignment */
@@ -295,5 +410,67 @@ footer {
   /* Footer */
   footer {
     font-size: 2vmin;
+  }
+}
+
+/* Keyframes */
+
+@keyframes colour-change {
+  0% {
+    color: var(--green);
+  }
+  25% {
+    color: var(--red);
+  }
+  50% {
+    color: var(--white);
+  }
+  75% {
+    color: var(--dark);
+  }
+  100% {
+    color: var(--green);
+  }
+}
+
+@keyframes light-colour-change {
+  0% {
+    color: var(--green-light);
+  }
+  25% {
+    color: var(--red-light);
+  }
+  50% {
+    color: var(--white);
+  }
+  75% {
+    color: var(--dark);
+  }
+  100% {
+    color: var(--green-light);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px var(--green), 0 0 10px var(--green), 0 0 15px var(--green);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--green), 0 0 30px var(--green), 0 0 40px var(--green);
+  }
+  100% {
+    text-shadow: 0 0 5px var(--green), 0 0 10px var(--green), 0 0 15px var(--green);
+  }
+}
+
+@keyframes light-glow {
+  0% {
+    text-shadow: 0 0 5px var(--green-light), 0 0 10px var(--green-light), 0 0 15px var(--green-light);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--green-light), 0 0 30px var(--green-light), 0 0 40px var(--green-light);
+  }
+  100% {
+    text-shadow: 0 0 5px var(--green-light), 0 0 10px var(--green-light), 0 0 15px var(--green-light);
   }
 }

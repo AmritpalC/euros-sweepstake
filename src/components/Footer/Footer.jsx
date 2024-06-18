@@ -13,7 +13,7 @@ export default function Footer() {
             Amritpal Chahal
           </a>
         </div>
-        <span className="green">Made for Westfield Warzone Wednesday</span>
+        <span className="green">Made for Everyone</span>
       </footer>
     </>
   )
