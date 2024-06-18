@@ -1,6 +1,35 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+
+  const [flags, setFlags] = useState([]);
+
+  useEffect(() => {
+    fetchTeams();
+  }, []);
+
+  const fetchTeams = () => {
+    fetch('./teams.json')
+      .then(response => {
+        if(!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.teams) {
+          const allFlags = data.teams.map(team => team.flag);
+          setFlags(allFlags);
+        } else {
+          throw new Error("Invalid data structure")
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      })
+  };
+
   return (
     <div className="home-page">
       <div className="intro">
@@ -16,6 +45,11 @@ export default function HomePage() {
           Go to Generator
         </button>
       </Link>
+      <div className="all-flags">
+        {flags.map((url, index) => (
+          <img key={index} src={url} alt={`Team flag ${index}`} className="team-flag" />
+        ))}
+      </div>
     </div>
   )
 }

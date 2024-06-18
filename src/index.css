@@ -130,7 +130,7 @@ body.light .gen-page, body.light .home-page {
 }
 
 .home-page {
-  padding-top: 50vmin;
+  padding-top: 30vmin;
 }
 
 .gen-page {
@@ -162,6 +162,19 @@ body.light .euro-2024:hover {
 
 .home-desc {
   margin: 2vmin 0;
+}
+
+.all-flags {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2vmin;
+  padding: 2vmin;
+  margin: 2vmin 8vmin 0 8vmin;
+}
+
+.team-flag {
+  width: 100%;
+  height: 8vmin;
 }
 
 .teams-comp {
@@ -347,6 +360,7 @@ footer {
   font-size: 2.5vmin;
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 }
 
 body.light footer {
@@ -384,6 +398,12 @@ body.light .portfolio:hover {
   }
   .theme-toggle {
     font-size: 4vmin;
+  }
+  .all-flags {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .team-flag {
+    height: 10vmin;
   }
 
   /* Teams and assignment */
